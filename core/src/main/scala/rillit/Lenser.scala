@@ -42,7 +42,7 @@ object Lenser {
      case x =>
        abort("unexpected c.prefix tree: %s".format(x))
    }
-   c.Expr[Any](c.resetAllAttrs(t))
+   c.Expr[Any](c.untypecheck(t))
  }
 
 
@@ -73,7 +73,7 @@ object Lenser {
       case x =>
         abort("unexpected c.prefix tree: %s".format(x))
     }
-    c.Expr[Any](c.resetAllAttrs(t))
+    c.Expr[Any](c.untypecheck(t))
   }
 
   def createBuilder(c: Context)(lens: c.universe.Tree, originalBuilderTpe: c.universe.Type, lensTargetTpe: c.universe.Type, name: String) = {
